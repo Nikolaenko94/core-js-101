@@ -71,8 +71,9 @@ function processAllPromises(/* array */) {
  *    })
  *
  */
-function getFastestPromise(/* array */) {
-  throw new Error('Not implemented');
+function getFastestPromise(array) {
+  // prettier-ignore
+  return Promise.race(array).then((res) => res);
 }
 
 /**
