@@ -52,8 +52,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  const result = (value1 + value2) / 2;
-  return Math.floor(result);
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -146,8 +145,8 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  // return eval(value);
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
@@ -185,8 +184,8 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -207,9 +206,9 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n % 2 === 0) {
-    return false;
-  } return true;
+  if (n === 2) return true;
+  const num = 2 ** (n - 1);
+  return num % n === 1;
 }
 
 /**
@@ -227,8 +226,10 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const numb = Number(value);
+  if (Number.isNaN(numb)) return def;
+  return Number(value);
 }
 
 module.exports = {
